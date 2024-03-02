@@ -7,6 +7,10 @@ bot = telebot.TeleBot(token)
 def start(message):
     bot.reply_to(message, "Привет! Я бот для управления чатом.")
 
+@bot.message_handler(commands=['rules'])
+def кгдуы(message):
+    bot.reply_to(message, "Мошенничество и запрещенные программы, Обсуждение пиратских ресурсов,Сообщения, содержащие в себе распространение и обсуждение запрещенных программ в чате")
+
 @bot.message_handler(commands=['ban'])
 def ban_user(message):
     if message.reply_to_message: #проверка на то, что эта команда была вызвана в ответ на сообщение 
