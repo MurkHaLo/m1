@@ -11,6 +11,11 @@ def start(message):
 def кгдуы(message):
     bot.reply_to(message, "Мошенничество и запрещенные программы, Обсуждение пиратских ресурсов,Сообщения, содержащие в себе распространение и обсуждение запрещенных программ в чате")
 
+@bot.message_handler(content_types=['new_chat_members'])
+def make_some(message):
+    bot.send_message(message.chat.id, 'I accepted a new user!')
+    bot.approve_chat_join_request(message.chat.id, message.from_user.id)
+
 @bot.message_handler(commands=['ban'])
 def ban_user(message):
     if message.reply_to_message: #проверка на то, что эта команда была вызвана в ответ на сообщение 
